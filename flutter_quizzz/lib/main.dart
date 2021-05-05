@@ -46,10 +46,12 @@ class MyAppState extends State<MyApp> {
       {
         "questionValue": "What's your favourite color?",
         "answersList": ["Red", "Blue", "Black", "White"],
+        "pictureUrl": "https://content.sintelly.com/articles/7W2bOs3z3YVs2LS7NfFv/content/can-colors-impact-emotions-and-behaviors-0-@sintelly.jpeg"
       },
       {
         "questionValue": "What's your favourite animal?",
         "answersList": ["Dog", "Cat", "Lion", "Snake"],
+        "pictureUrl": "https://mediacloud.kiplinger.com/image/private/s--zFDKjwc_--/v1584618177/slideshow/investing/T052-S001-the-9-best-pure-bred-pet-stocks-to-buy/images/intro.jpg"
       },
       {
         "questionValue": "Who's your favourite instructor?",
@@ -59,6 +61,7 @@ class MyAppState extends State<MyApp> {
           "Of corse Ramzi",
           "No one else but Ramzi"
         ],
+        "pictureUrl": "https://winsple.com/wp-content/uploads/2020/10/become-a-teacher-hero-image-1.png"
       },
     ];
     return MaterialApp(
@@ -71,9 +74,14 @@ class MyAppState extends State<MyApp> {
             Question(questions[_questionIndex]["questionValue"]),
             ...(questions[_questionIndex]["answersList"] as List<String>).map((e) {
               return Answer(_answerQuestion, e);
-            }).toList()
+            }).toList(),
+            Image(
+              image: NetworkImage(questions[_questionIndex]["pictureUrl"]),
+               
+            ),
           ],
         ),
+
       ),
     );
   }
