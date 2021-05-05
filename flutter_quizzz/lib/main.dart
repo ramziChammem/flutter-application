@@ -29,16 +29,16 @@ class MyAppState extends State<MyApp> {
     }
   }
 
-  void _answerQuestion2() {
-    if (_questionIndex > 0) {
-      setState(() {
-        _questionIndex--;
-      });
-      print(_questionIndex);
-    } else {
-      print("an error occured");
-    }
-  }
+  // void _answerQuestion2() {
+  //   if (_questionIndex > 0) {
+  //     setState(() {
+  //       _questionIndex--;
+  //     });
+  //     print(_questionIndex);
+  //   } else {
+  //     print("an error occured");
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class MyAppState extends State<MyApp> {
           children: [
             Question(questions[_questionIndex]),
             RaisedButton(child: Text("Answer 1"), onPressed: _answerQuestion),
-            RaisedButton(child: Text("Answer 2"), onPressed: _answerQuestion2),
+            RaisedButton(child: Text("Answer 2"), onPressed: _answerQuestion),
             RaisedButton(child: Text("Answer 3"), onPressed: _answerQuestion),
           ],
         ),
