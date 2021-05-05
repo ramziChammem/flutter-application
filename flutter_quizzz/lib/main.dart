@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import './question.dart';
 
-void main() {
-  runApp(MyApp());
-}
+
+void main() => runApp(MyApp());
+// void main() {
+//   runApp(MyApp());
+// }
 
 class MyApp extends StatefulWidget {
   @override
@@ -13,27 +16,25 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+  var _questionIndex = 0;
 
-  void answerQuestion() {
-    if (questionIndex < 1) {
+  void _answerQuestion() {
+    if (_questionIndex < 1) {
       setState(() {
-        questionIndex++;
+        _questionIndex++;
       });
-      print(questionIndex);
+      print(_questionIndex);
+    } else {
+      print("No More Questions");
     }
-  else {
-    print("No More Questions");
-  }
-    
   }
 
-  void answerQuestion2() {
-    if (questionIndex > 0) {
+  void _answerQuestion2() {
+    if (_questionIndex > 0) {
       setState(() {
-        questionIndex--;
+        _questionIndex--;
       });
-      print(questionIndex);
+      print(_questionIndex);
     } else {
       print("an error occured");
     }
@@ -52,10 +53,10 @@ class MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(questions[questionIndex]),
-            RaisedButton(child: Text("Answer 1"), onPressed: answerQuestion),
-            RaisedButton(child: Text("Answer 2"), onPressed: answerQuestion2),
-            RaisedButton(child: Text("Answer 3"), onPressed: answerQuestion),
+            Question(questions[_questionIndex]),
+            RaisedButton(child: Text("Answer 1"), onPressed: _answerQuestion),
+            RaisedButton(child: Text("Answer 2"), onPressed: _answerQuestion2),
+            RaisedButton(child: Text("Answer 3"), onPressed: _answerQuestion),
           ],
         ),
       ),
